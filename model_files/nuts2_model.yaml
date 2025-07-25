@@ -1,11 +1,11 @@
 import: # Import other files from paths relative to this file, or absolute paths
   - "techs_and_nodes/techs.yaml" # This file specifies the model's technologies
-  - "techs_and_nodes/nodes.yaml" # This file specifies the model's nodes
-  - "techs_and_nodes/transmission.yaml" # This file specifies the model's links between nodes
+  - "techs_and_nodes/nuts2_nodes.yaml" # This file specifies the model's nodes
+  - "techs_and_nodes/nuts2_transmission.yaml" # This file specifies the model's links between nodes
   - "scenarios/spores.yaml" # SPORES scenarios
-  - "scenarios/brownfield_caps.yaml" # Scenario and override group definitions
-  - "scenarios/frozen_caps.yaml" # Scenario and override group definitions
-  - "scenarios/fixed-design-cost-optimal.yaml" # Override to fix the design based on previous results
+  - "scenarios/nuts2_brownfield_caps.yaml" # Scenario and override group definitions
+  - "scenarios/nuts2_frozen_caps.yaml" # Scenario and override group definitions
+  - "scenarios/fixed-design-cost-optimal-nuts2.yaml" # Override to fix the design based on previous results
 
 # Model configuration: all settings that affect the built model
 config:
@@ -46,28 +46,28 @@ parameters:
 
 data_tables:
   demand:
-    data: timeseries/demand_power_nuts3_2019.csv
+    data: timeseries/demand_power_nuts2_2019.csv
     rows: timesteps
     columns: [nodes]
     add_dims:
       techs: [demand_power]
       parameters: sink_use_equals
   solar:
-    data: timeseries/pv_nuts3_2019.csv
+    data: timeseries/pv_nuts2_2019.csv
     rows: timesteps
     columns: [nodes]
     add_dims:
       techs: [solar_pv]
       parameters: source_use_equals
   wind_onshore:
-    data: timeseries/windon_nuts3_2019.csv
+    data: timeseries/windon_nuts2_2019.csv
     rows: timesteps
     columns: [nodes]
     add_dims:
       techs: [wind_onshore]
       parameters: source_use_equals  
   wind_offshore:
-    data: timeseries/windoff_nuts3_2019.csv
+    data: timeseries/windoff_nuts2_2019.csv
     rows: timesteps
     columns: [nodes]
     add_dims:
